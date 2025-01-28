@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Dark mode transitions */
+.dark {
+  color-scheme: dark;
+}
+
+* {
+  transition-property: color, background-color, border-color;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Styles pour les poignées de redimensionnement */
+.panel-resize-handle {
+  width: 4px !important;
+  background-color: #e5e7eb;
+  position: relative;
+  margin: 0 10px;
+  z-index: 10;
+}
+
+.dark .panel-resize-handle {
+  background-color: #374151;
+}
+
+.panel-resize-handle::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transition: background-color 150ms ease;
+}
+
+.panel-resize-handle:hover::after {
+  background-color: #3b82f6;
+}
+
+[data-panel-resize-handle][data-resize-handle-active] {
+  background-color: #3b82f6;
+}
+
+/* Styles pour les panneaux */
+[data-panel] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbars personnalisés */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
